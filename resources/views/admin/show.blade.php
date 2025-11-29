@@ -51,7 +51,7 @@
                 
                 @if($ticket->status !== 'Closed')
                 <div class="mb-4">
-                    <label class="block text-xs font-medium text-gray-700 mb-2">Add/Update Note</label>
+                    <label class="block text-xs font-medium text-gray-700 mb-2">Add Note</label>
                     <input id="admin_note" type="hidden" name="admin_note">
                     <trix-editor input="admin_note" class="border border-gray-300 rounded-lg"></trix-editor>
                 </div>
