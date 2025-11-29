@@ -101,15 +101,7 @@ php artisan db:seed
 - **Email:** `admin@example.com`
 - **Password:** `password`
 
-### 6. Build Frontend Assets
-
-Compile the CSS and JavaScript assets:
-
-```bash
-npm run build
-```
-
-### 7. Run the Application
+### 6. Run the Application
 
 Start the local development server:
 
