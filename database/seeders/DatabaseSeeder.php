@@ -24,6 +24,16 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        // Create Admin User
+        $admin = User::where('email', 'admin@example.com')->first();
+        if (!$admin) {
+            User::factory()->create([
+                'name' => 'Admin User',
+                'email' => 'admin@example.com',
+                'password' => \Illuminate\Support\Facades\Hash::make('password'),
+            ]);
+        }
+
         // Call TicketSeeder
         $this->call([
             TicketSeeder::class,

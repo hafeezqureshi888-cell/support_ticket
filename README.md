@@ -97,6 +97,10 @@ Populate the database with initial data (test users, tickets, etc.):
 php artisan db:seed
 ```
 
+**Default Login Credentials:**
+- **Email:** `admin@example.com`
+- **Password:** `password`
+
 ### 6. Build Frontend Assets
 
 Compile the CSS and JavaScript assets:
