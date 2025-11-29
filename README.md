@@ -32,11 +32,11 @@ cd support_ticket
 
 ### 2. Install Dependencies
 
-Install PHP and Node.js dependencies:
+Install PHP dependencies:
 
 ```bash
 composer install
-npm install
+
 ```
 
 ### 3. Configure Environment
@@ -98,9 +98,10 @@ php artisan db:seed
 ```
 
 **Default Login Credentials:**
-- **Login Url:** `http://localhost:8000/admin/login`
-- **Email:** `admin@example.com`
-- **Password:** `password`
+
+-   **Login Url:** `http://localhost:8000/admin/login`
+-   **Email:** `admin@example.com`
+-   **Password:** `password`
 
 ### 6. Run the Application
 
