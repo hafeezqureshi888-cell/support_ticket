@@ -98,6 +98,7 @@ php artisan db:seed
 ```
 
 **Default Login Credentials:**
+- **Login Url:** `http://localhost:8000/admin/login`
 - **Email:** `admin@example.com`
 - **Password:** `password`
 
