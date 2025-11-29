@@ -10,9 +10,9 @@ use App\Mail\TicketSubmitted;
 
 class TicketController extends Controller
 {
-    /**
-     * Generate unique alphanumeric ticket reference
-     */
+     
+     // Generate unique alphanumeric ticket reference
+ 
     private function generateTicketRef()
     {
         do {
