@@ -212,10 +212,40 @@
                         <p class="text-sm text-gray-500">@yield('page-subtitle', 'Manage support tickets')</p>
                     </div>
                 </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="text-right">
-                            <p class="text-sm font-medium text-gray-700">{{ Auth::user()->name }}</p>
-                            <p class="text-xs text-gray-500">{{ Auth::user()->email }}</p>
+                    <div class="flex items-center space-x-4" x-data="{ userMenuOpen: false }">
+                        <div class="relative">
+                            <button @click="userMenuOpen = !userMenuOpen" class="flex items-center space-x-2 focus:outline-none transition-transform active:scale-95">
+                                <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold shadow-md ring-2 ring-white">
+                                    {{ substr(Auth::user()->name, 0, 1) }}
+                                </div>
+                            </button>
+                            
+                            <div x-show="userMenuOpen" 
+                                 @click.away="userMenuOpen = false"
+                                 x-transition:enter="transition ease-out duration-100"
+                                 x-transition:enter-start="transform opacity-0 scale-95"
+                                 x-transition:enter-end="transform opacity-100 scale-100"
+                                 x-transition:leave="transition ease-in duration-75"
+                                 x-transition:leave-start="transform opacity-100 scale-100"
+                                 x-transition:leave-end="transform opacity-0 scale-95"
+                                 class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl py-2 z-50 border border-gray-100"
+                                 style="display: none;">
+                                <div class="px-4 py-3 border-b border-gray-100 bg-gray-50/50">
+                                    <p class="text-sm font-bold text-gray-900">{{ Auth::user()->name }}</p>
+                                    <p class="text-xs text-gray-500 truncate">{{ Auth::user()->email }}</p>
+                                </div>
+                                <div class="py-1">
+                                    <form method="POST" action="{{ route('admin.logout') }}">
+                                        @csrf
+                                        <button type="submit" class="flex w-full items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                                            </svg>
+                                            Logout
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
