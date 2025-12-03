@@ -136,7 +136,7 @@
     </style>
     @yield('extra-styles')
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 overflow-x-hidden">
     <div class="min-h-screen flex" x-data="{ sidebarOpen: false }">
         <!-- Mobile Sidebar Overlay -->
         <div x-show="sidebarOpen" @click="sidebarOpen = false" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-gray-900/80 z-40 md:hidden"></div>
@@ -197,9 +197,9 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 flex flex-col">
+        <main class="flex-1 flex flex-col w-full">
             <!-- Top Bar -->
-            <header class="bg-white border-b border-gray-200 px-6 py-4">
+            <header class="bg-white border-b border-gray-200 px-4 md:px-6 py-4">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
                         <button @click="sidebarOpen = !sidebarOpen" class="mr-4 md:hidden text-gray-500 hover:text-gray-700 focus:outline-none">
@@ -222,12 +222,12 @@
             </header>
 
             <!-- Page Content -->
-            <div class="p-6">
+            <div class="p-4 md:p-6">
                 @yield('content')
             </div>
 
             <!-- Footer -->
-            <footer class="bg-white border-t border-gray-200 mt-auto py-4 px-6">
+            <footer class="bg-white border-t border-gray-200 mt-auto py-4 px-4 md:px-6">
                 <div class="text-center text-sm text-gray-500">
                     <p>&copy; {{ date('Y') }} Support Desk. All rights reserved.</p>
                 </div>
