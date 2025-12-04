@@ -97,13 +97,7 @@ class SetupApp extends Command
         $this->info('Migrating default connection...');
         $this->call('migrate', ['--force' => true]);
 
-        // Migrate other connections
-        // We need to migrate the 'tickets' table to all support databases
-        // Since we created a single migration file for tickets, running migrate on other connections
-        // will attempt to run all migrations. 
-        // Ideally, we should only run the tickets migration, but for simplicity we can run all.
-        // However, 'users' table might not be needed in other DBs.
-        // But it doesn't hurt to have them.
+        // Migrate additional connections
 
         foreach (Ticket::$typeConnectionMap as $connectionName) {
             $this->info("Migrating connection: $connectionName");
